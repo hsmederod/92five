@@ -42,7 +42,6 @@ class InstallController extends BaseController{
 		// Create the database if it doesn't exist. Use bindings to escape the value
 		DB::statement('CREATE DATABASE IF NOT EXISTS :chosen_database', array('chosen_database' => $data['database']));
 
-
 		DB::unprepared(file_get_contents(public_path().'/92fiveapp.sql'));
 
 		return View::make('install.timezone');
